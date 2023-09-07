@@ -1,0 +1,43 @@
+def baseparam():
+  global gender
+  global age
+  gender = int(input("Please insert your gender.\n1-Male\n2-Female\n")) #Learn what the gender of the participant is.
+  age = int(input("Please insert your age\n")) #Learn age of participant
+  densCalc()
+
+def densCalc():
+  if gender == 1:
+    finalx2=0
+    x2=[]
+    x2.append(int(input("Please insert your chest skinfold in mm\n")))
+    x2.append(int(input("Please insert your abdomen skinfold in mm\n")))
+    x2.append(int(input("Please insert your thigh skinfold in mm\n")))
+    #The 3 above is to gain all 3 skinfolds for later addition
+    for x in x2:
+      finalx2+=x #Gain final x2
+    x4=int(input("Please insert your waist circumference in m\n"))
+    x5=int(input("Please insert your forearm circumference in m\n"))
+    bdm = (1.0990750 - (0.0008209*finalx2) + (0.0000026*(finalx2**2)) -
+    (0.0002017*age) - (0.005675*x4) + (0.018586*x5))
+    print(bdm)
+    bdf = (495/bdm) - 450
+    print(bdf)
+    #bdm=body density male
+  elif gender == 2:
+    finalx3f=0
+    x3f=[]
+    x3f.append(int(input("Please insert your triceps skinfold in mm\n")))
+    x3f.append(int(input("Please insert your thigh skinfold in mm\n")))
+    x3f.append(int(input("Please insert your suprailiac skinfold in mm\n")))
+    for x in x3f:
+      finalx3f+=x #Gain final x2
+    x5=int(input("Please insert your gluteal circumference in cm\n"))
+    bdf = (1.1470292 - (0.0009376*finalx3f) + (0.0000030*(finalx3f**2)) -
+    (0.0001156*age) - (0.0005839*x5))
+    print(bdf)
+    #bdf=body density female
+  else:
+    print("An improper value has been inserted. Please enter a new number.")
+    baseparam()
+
+baseparam()
