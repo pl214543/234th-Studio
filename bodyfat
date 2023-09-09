@@ -1,6 +1,3 @@
-def push(lst, numb):
-  lst.insert(0, numb)
-
 class densCalcu:
   
   def __init__(self, age):
