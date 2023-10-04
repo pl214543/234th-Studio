@@ -1,2 +1,5 @@
 from gpiozero import Robot
-mdm=Robot((),())
+mdm=Robot((,),(,)) #motor driver manager
+mdm.forward()
+sleep(2)
+mdm.stop()
