@@ -1,6 +1,6 @@
 from gpiozero import Robot
 from time import sleep
-mdm=Robot(left=(1,2),right=(3,4)) #motor driver manager current pins are placeholders
+mdm=Robot(left=(1,2),right=(3,4)) #motor driver manager, current pins are placeholders
 mdm.forward()
 sleep(2)
 mdm.stop()
