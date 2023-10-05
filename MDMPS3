@@ -1,4 +1,5 @@
 from gpiozero import Robot
+from time import sleep
 mdm=Robot((13,19),(26,6)) #motor driver manager
 mdm.forward()
 sleep(2)
