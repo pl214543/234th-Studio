@@ -1,6 +1,26 @@
-from gpiozero import Robot
+#MUST INSTALL:
+#sudo apt install python-setuptools python3-setuptools
+
+#wget https://github.com/joan2937/pigpio/archive/master.zip
+#unzip master.zip
+#cd pigpio-master
+#make
+#sudo make install
+
+#pip install rpi.gpio
+
+#------------------------------------------------------------ NECESSARY ENDED -------------------------------------------------------
+
 from time import sleep
-mdm=Robot(left=(1,2),right=(3,4)) #motor driver manager, current pins are placeholders
-mdm.forward()
-sleep(2) #time may need adjusting. currently assuming 1ft/sec.
-mdm.stop()
+
+from gpiozero import Device, Robot
+from gpiozero.pins.mock import MockFactory
+
+Device.pin_factory = MockFactory() #current factory allows for testing without usage of a board
+
+mdm=Robot((1,2),(3,4)) #motor driver manager, current pins are placeholders
+mdm.forward() #begin forward movement
+sleep(2) #wait for 2 seconds. Assuming 1ft/sec
+mdm.stop() #end forward movement
+
+print("Test Complete. If this is run, then assume that code is clean enough to manage.")
